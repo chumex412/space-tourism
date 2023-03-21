@@ -1207,6 +1207,21 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/barlow-condensed@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/barlow-condensed/-/barlow-condensed-4.5.9.tgz#5088998a644f04cedeecb65a633877dbfadca7b6"
+  integrity sha512-vhxHtTw4y3R6kErgOVb4wkQ6H+znGNK+G9J7R/pFZ6uE6lxdyIR1t7fG0tgEJIrdA0otLLyiVSwtZbQRHmexaA==
+
+"@fontsource/barlow@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/barlow/-/barlow-4.5.9.tgz#e3b18084e839c1c0a5ac30f7fef6737cd720f6df"
+  integrity sha512-Nzg7bpw6raZtNdHwvLIt6ue/Gas/tpsNyf7zrRvVdV38iOrtOip2aabO3lexEyiYkKjKrlqAjEyAtTrC2XfkRg==
+
+"@fontsource/bellefair@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/bellefair/-/bellefair-4.5.10.tgz#ec9c70097f5e60b143e93fb31dd98491a6ad139d"
+  integrity sha512-t01lG3bu98+qD85Sjz/w2vpucKXVCv+ktHyx0vqroCsI4defX8nGWEg19jIpw0IZG3hp2ltubIxfFWSJa13AUQ==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"
