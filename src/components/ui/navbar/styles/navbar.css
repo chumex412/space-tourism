@@ -1,0 +1,38 @@
+@tailwind components;
+
+@layer components {
+	.links-container {
+		background-color: theme('colors.white / 0.04');
+		backdrop-filter: blur(40.7742px);
+		transform: translateX(120%);
+		-moz-transform: translateX(120%);
+		-webkit-transform: translateX(120%);
+	}
+
+	.links-container.show {
+		transform: translateX(0);
+		-moz-transform: translateX(0);
+		-webkit-transform: translateX(0);
+	}
+
+	.hr-line {
+		position: absolute;
+		top: 50%;
+		left: -48%;
+		height: 1px;
+		width: 50%;
+		background-color: theme('colors.white');
+		transform: translateY(50%);
+		-moz-transform: translateY(50%);
+		-webkit-transform: translateY(50%);
+	}
+
+	@media only screen and (min-width: 480px) {
+		.links-container {
+			left: unset;
+			transform: unset;
+			-moz-transform: unset;
+			-webkit-transform: unset;
+		}
+	}
+}
