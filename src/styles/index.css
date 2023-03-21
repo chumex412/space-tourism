@@ -3,12 +3,88 @@
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@layer base {
+	:root {
+		/* DESIGN SYSTEM */
+
+		/* COLORS */
+
+		--primary-color: 10 12 23;
+		--secondary-color: 208 214 249;
+		--white-color: 255 255 255;
+
+		/* TYPOGRAPHY */
+
+		--lg-lh: 150%;
+		--sm-lh: 120%;
+		--type-scale: 0.85;
+		--sm-text: calc(0.875rem * var(--type-scale));
+		--md-text: calc(1rem * var(--type-scale));
+		--base-text: calc(1.125rem * var(--type-scale));
+		--h5: calc(1.75rem * var(--type-scale));
+		--h4: calc(2rem * var(--type-scale));
+		--h3: calc(3.5rem * var(--type-scale));
+		--h2: calc(6.25rem * var(--type-scale));
+		--h1: calc(9.375rem * var(--type-scale));
+
+		/* END OF DESIGN SYSTEM */
+	}
+
+	.App {
+		height: 100vh;
+	}
+
+	source {
+		object-fit: contain;
+		width: 100%;
+		height: 100%;
+	}
+
+	img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+
+	main {
+		height: calc(100vh - 104px);
+	}
+
+	@media only screen and (min-width: 650px) {
+		:root {
+			--type-scale: 0.9;
+		}
+	}
+
+	@media only screen and (min-width: 992px) {
+		:root {
+			--type-scale: 1;
+		}
+	}
+}
+
+@layer components {
+	body {
+		background-color: theme('colors.primary');
+		min-height: 100vh;
+	}
+
+	.container {
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	.App picture {
+		z-index: -1;
+	}
 }
