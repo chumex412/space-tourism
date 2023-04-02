@@ -4,6 +4,7 @@
 	.links-container {
 		background-color: theme('colors.white / 0.04');
 		backdrop-filter: blur(40.7742px);
+		-webkit-backdrop-filter: blur(40.7742px);
 		transform: translateX(120%);
 		-moz-transform: translateX(120%);
 		-webkit-transform: translateX(120%);
