@@ -7,7 +7,7 @@ const Crew = () => {
 	console.log('Rerenders');
 
 	return (
-		<section>
+		<section className="w-full">
 			<PageBackground desktop={imgs.crew.desktop} tablet={imgs.crew.tablet} mobile={imgs.crew.mobile} />
 			<CrewContent />
 		</section>
