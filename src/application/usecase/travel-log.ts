@@ -1,4 +1,3 @@
-import { AppState } from '../redux/store';
 import { getTravelLog } from '../services/travel-log';
 import type { Destination, Crew, TechItem } from '../domain/entity/travel-log';
 import { DestinationNamesTypes } from '../domain/entity/destination';
@@ -13,6 +12,18 @@ export const getSingleDestination = (list: Destination[], name: string): Destina
 	const destination = list.find((location) => location.name === name) as Destination;
 
 	return destination;
+};
+
+export const changeCrew = (list: Crew[], currentIndex: number): Crew => {
+	const singleCrew = list[currentIndex] as Crew;
+	return singleCrew;
+};
+
+export const getCrewCount = (list: Crew[]): string[] => {
+	const crewCount = new Array(list.length).fill('crew').map((person, index) => {
+		return window.btoa(list[index].name);
+	}) as string[];
+	return crewCount;
 };
 
 /*export const increaseCrewcurrCount = (currCount: number): Crew => {
