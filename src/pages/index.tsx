@@ -5,6 +5,7 @@ import { PageLayout } from '../layout';
 
 const Home = lazy(() => import('./Home'));
 const Destination = lazy(() => import('./Destination'));
+const Crew = lazy(() => import('./Crew'));
 
 const rootRouter = () =>
 	createBrowserRouter(
@@ -13,6 +14,7 @@ const rootRouter = () =>
 				<Route element={<PageLayout />}>
 					<Route index element={<Home />} />
 					<Route path="destination" element={<Destination />} />
+					<Route path="crew" element={<Crew />} />
 				</Route>
 			</Route>
 		)
