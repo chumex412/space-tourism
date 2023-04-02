@@ -1,12 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {
-	Crew,
-	Destination,
-	TravelLogDataType,
-	LogArrayType,
-	TechItem,
-	LogObjType
-} from '../../domain/entity/travel-log';
+import { LogObjType } from '../../domain/entity/travel-log';
 
 type TravelLogState = {
 	destinations: LogObjType[];
@@ -14,12 +7,14 @@ type TravelLogState = {
 	technology: DataState;
 };
 
-type DataState = { data: LogArrayType; count: number };
+type DataState = { data: LogObjType[]; index: number };
+
+type DataCount = { index: number };
 
 const initialState: TravelLogState = {
 	destinations: [],
-	crew: { data: [], count: 0 },
-	technology: { data: [], count: 0 }
+	crew: { data: [], index: 0 },
+	technology: { data: [], index: 0 }
 };
 
 const travelLogSlice = createSlice({
@@ -29,15 +24,22 @@ const travelLogSlice = createSlice({
 		addDestinations(state, action: PayloadAction<LogObjType[]>) {
 			state.destinations = action.payload;
 		},
-		addCrew(state, action: PayloadAction<Crew[]>) {
+		addCrew(state, action: PayloadAction<LogObjType[]>) {
 			state.crew.data = action.payload;
 		},
-		addTechnology(state, action: PayloadAction<TechItem[]>) {
+		updateCrewIndex(state, action: PayloadAction<DataCount>) {
+			state.crew.index = action.payload.index;
+		},
+		addTechnology(state, action: PayloadAction<LogObjType[]>) {
 			state.technology.data = action.payload;
+		},
+		updateTechnologyIndex(state, action: PayloadAction<DataCount>) {
+			state.technology.index = action.payload.index;
 		}
 	}
 });
 
-export const { addDestinations, addCrew, addTechnology } = travelLogSlice.actions;
+export const { addDestinations, addCrew, updateCrewIndex, addTechnology, updateTechnologyIndex } =
+	travelLogSlice.actions;
 
 export default travelLogSlice.reducer;
