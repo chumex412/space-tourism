@@ -13,13 +13,15 @@ const Destination = () => {
 	const { png, webp } = singleDestination.images;
 
 	return (
-		<section className="w-full">
+		<section className="mt-16 w-full">
 			<PageBackground
 				desktop={imgs.destination.desktop}
 				tablet={imgs.destination.tablet}
 				mobile={imgs.destination.mobile}
 			/>
-			<PageCaption count={1} text="Pick your destination" />
+			<div>
+				<PageCaption count={1} text="Pick your destination" />
+			</div>
 			<section className="destination-wrapper">
 				<DestinationImage png={png} webp={webp} />
 				<section>
