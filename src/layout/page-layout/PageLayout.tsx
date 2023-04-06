@@ -7,9 +7,7 @@ const PageLayout = () => {
 	return (
 		<>
 			<Navbar />
-			<main className="container flex items-center lg:block">
-				<Outlet />
-			</main>
+			<Outlet />
 		</>
 	);
 };
