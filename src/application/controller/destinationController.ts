@@ -1,35 +1,43 @@
-import { useState, useEffect, useCallback, useTransition } from 'react';
+import { useState, useEffect, useCallback, useTransition, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Destination } from '../domain/entity/travel-log';
+import { DestinationNamesTypes } from '../domain/entity/destination';
 import { AppState } from '../redux/store';
-import { getDestinations } from '../redux/travel-log/selector';
-import { addDestinations } from '../redux/travel-log/slice';
+import { getDestinations, getCurrentName } from '../redux/travel-log/selector';
+import { addDestinations, updateCurrentName } from '../redux/travel-log/slice';
 
 import { getTravelLog } from '../services/travel-log';
 import { getDestinationNames, getSingleDestination } from '../usecase/travel-log';
 
 const useTravelDestination = function () {
-	const [singleDestination, setSingleDestination] = useState<Destination>({
+	const singleDestinationRef = useRef<Destination>({
 		name: '',
 		images: { png: '', webp: '' },
 		description: '',
 		travel: '',
 		distance: ''
 	});
-	const [isPending, startTransition] = useTransition();
+
+	const destinationNamesRef = useRef<DestinationNamesTypes[]>();
 
 	const destinations = useSelector((state: AppState) => getDestinations(state)) as Destination[];
+	const currentName = useSelector((state: AppState) => getCurrentName(state));
+
+	const { pathname } = useLocation();
 
 	const dispatch = useDispatch();
 
 	useEffect(
 		function () {
 			dispatch(addDestinations(getTravelLog('destinations')));
-
-			startTransition(() => setSingleDestination(destinations[0]));
 		},
-		[dispatch, destinations]
+		[dispatch]
 	);
+
+	useEffect(() => {
+		if (pathname === '/destination') dispatch(updateCurrentName({ name: 'Moon' }));
+	}, [dispatch, pathname]);
 
 	const showNames = () => {
 		return getDestinationNames(destinations);
@@ -37,15 +45,21 @@ const useTravelDestination = function () {
 
 	const showSingleDestination = useCallback(
 		(name: string) => {
-			const destination = getSingleDestination(destinations, name) as Destination;
-			startTransition(() => {
-				setSingleDestination(destination);
-			});
+			dispatch(updateCurrentName({ name }));
 		},
-		[destinations]
+		[dispatch]
 	);
 
-	return { showSingleDestination, showNames, singleDestination };
+	singleDestinationRef.current = getSingleDestination(destinations, currentName);
+	destinationNamesRef.current = showNames();
+
+	return {
+		showSingleDestination,
+		destinations,
+		destinationNames: destinationNamesRef.current,
+		singleDestination: singleDestinationRef.current,
+		pathname
+	};
 };
 
 export default useTravelDestination;

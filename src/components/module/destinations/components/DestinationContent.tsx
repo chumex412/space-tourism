@@ -1,22 +1,28 @@
 import { HeaderGroup } from '../../../ui';
-import { DestinationContentProps } from '../../../../application/domain/entity/destination';
+import { useTravelDestination } from '../../../../application/controller';
 
-const DestinationContent = ({ name, description, travel, distance }: DestinationContentProps) => {
+const DestinationContent = () => {
+	const { singleDestination, destinations } = useTravelDestination();
+
+	//console.log(singleDestination);
+
+	if (!destinations.length) return null;
+
 	return (
 		<section className="pt-9 pb-5 text-center xl:text-left">
-			<HeaderGroup lead={name} text={description} />
+			<HeaderGroup lead={singleDestination.name} text={singleDestination.description} />
 			<section className="flex justify-center gap-20 border-t-[#383B4B] pt-7 xl:justify-start">
 				<div>
 					<h4 className="mb-3 font-barlow text-xs font-normal uppercase leading-[120%] text-secondary">
 						AVG. DISTANCE
 					</h4>
-					<p className="font-bellefair text-md leading-[115%] text-white">{distance}</p>
+					<p className="font-bellefair text-[1.75rem] leading-[115%] text-white">{singleDestination.distance}</p>
 				</div>
 				<div>
 					<h4 className="mb-3 font-barlow text-xs font-normal uppercase leading-[120%] text-secondary">
 						Est. travel time
 					</h4>
-					<p className="font-bellefair text-md leading-[115%] text-white">{travel}</p>
+					<p className="font-bellefair text-[1.75rem] leading-[115%] text-white">{singleDestination.travel}</p>
 				</div>
 			</section>
 		</section>

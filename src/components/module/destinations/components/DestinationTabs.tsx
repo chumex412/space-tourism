@@ -1,22 +1,16 @@
 import React from 'react';
+import { useTravelDestination } from '../../../../application/controller';
+import { Tab } from '../../../ui';
 
-import { TabsPropTypes } from '../../../../application/domain/entity/destination';
+const DestinationTabs = () => {
+	const { showSingleDestination, destinationNames, singleDestination } = useTravelDestination();
 
-const DestinationTabs = ({ tabs, showSingleDestination }: TabsPropTypes) => {
 	return (
 		<section>
 			<ul className="mt-14 flex justify-center gap-8 xl:mt-0 xl:justify-start">
-				{tabs.map((tab) => {
-					return (
-						<li key={tab.id} className="list-none">
-							<button
-								onClick={() => showSingleDestination(tab.name)}
-								className="font-barlow-cond text-sm uppercase leading-[120%] text-white"
-							>
-								{tab.name}
-							</button>
-						</li>
-					);
+				{destinationNames.map((tab) => {
+					const activeBtn = tab.name === singleDestination.name;
+					return <Tab key={tab.id} name={tab.name} active={activeBtn} onclick={showSingleDestination} />;
 				})}
 			</ul>
 		</section>
