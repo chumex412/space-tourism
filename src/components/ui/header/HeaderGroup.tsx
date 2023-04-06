@@ -10,7 +10,7 @@ const HeaderGroup = ({ intro, lead, text }: PageHeader) => {
 				{intro && (
 					<span
 						className={`mb-6 font-barlow-cond font-normal ${
-							pathname === '/crew' ? 'text-lg' : 'text-md'
+							pathname === '/crew' ? 'text-lg' : pathname === '/technology' ? 'text-sm' : 'text-md'
 						} leading-[120%] text-secondary`}
 					>
 						{intro}
