@@ -2,17 +2,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LogObjType } from '../../domain/entity/travel-log';
 
 type TravelLogState = {
-	destinations: LogObjType[];
+	destinations: DataState;
 	crew: DataState;
 	technology: DataState;
 };
 
-type DataState = { data: LogObjType[]; index: number };
+type DataState = { data: LogObjType[]; index?: number; current?: string };
 
 type DataCount = { index: number };
 
+type DataName = { name: string };
+
 const initialState: TravelLogState = {
-	destinations: [],
+	destinations: { data: [], current: 'Moon' },
 	crew: { data: [], index: 0 },
 	technology: { data: [], index: 0 }
 };
@@ -22,7 +24,10 @@ const travelLogSlice = createSlice({
 	initialState,
 	reducers: {
 		addDestinations(state, action: PayloadAction<LogObjType[]>) {
-			state.destinations = action.payload;
+			state.destinations.data = action.payload;
+		},
+		updateCurrentName(state, action: PayloadAction<DataName>) {
+			state.destinations.current = action.payload.name;
 		},
 		addCrew(state, action: PayloadAction<LogObjType[]>) {
 			state.crew.data = action.payload;
@@ -39,7 +44,7 @@ const travelLogSlice = createSlice({
 	}
 });
 
-export const { addDestinations, addCrew, updateCrewIndex, addTechnology, updateTechnologyIndex } =
+export const { addDestinations, updateCurrentName, addCrew, updateCrewIndex, addTechnology, updateTechnologyIndex } =
 	travelLogSlice.actions;
 
 export default travelLogSlice.reducer;
