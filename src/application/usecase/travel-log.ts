@@ -19,11 +19,18 @@ export const changeCrew = (list: Crew[], currentIndex: number): Crew => {
 	return singleCrew;
 };
 
-export const getCrewCount = (list: Crew[]): string[] => {
-	const crewCount = new Array(list.length).fill('crew').map((person, index) => {
+export const getTravelCount = (list: Crew[] | TechItem[], logData: string): string[] => {
+	const travelCount = new Array(list.length).fill(logData).map((_, index) => {
 		return window.btoa(list[index].name);
 	}) as string[];
-	return crewCount;
+
+	return travelCount;
+};
+
+export const getSingleTech = (list: TechItem[], index: number): TechItem => {
+	const item = list[index] as TechItem;
+
+	return item;
 };
 
 /*export const increaseCrewcurrCount = (currCount: number): Crew => {
