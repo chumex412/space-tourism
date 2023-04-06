@@ -41,3 +41,16 @@ export type PageCaptionPropType = {
 	text: string;
 	count: number;
 };
+
+export type TravelLogIndicatorPropType = {
+	active: boolean;
+	index: number;
+	onclick: (index: number) => void;
+	pathname: string;
+};
+
+export type TravelTabsPropType = {
+	active: boolean;
+	onclick: (name: string) => void;
+	name: string;
+};
