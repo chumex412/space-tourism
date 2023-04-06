@@ -27,27 +27,33 @@
 
 		--lg-lh: 150%;
 		--sm-lh: 120%;
-		--type-scale: 0.85;
-		--sm-text: calc(0.875rem * var(--type-scale));
-		--md-text: calc(1rem * var(--type-scale));
-		--base-text: calc(1.125rem * var(--type-scale));
-		--h5: calc(1.75rem * var(--type-scale));
-		--h4: calc(2rem * var(--type-scale));
-		--h3: calc(3.5rem * var(--type-scale));
-		--h2: calc(6.25rem * var(--type-scale));
-		--h1: calc(9.375rem * var(--type-scale));
+		--type-scale-1: 0.85;
+		--type-scale-2: 0.6;
+		--h5-type-scale: 0.55;
+		--h3-type-scale: 0.44;
+		--h2-type-scale: 0.56;
+		--h1-type-scale: 0.54;
+		--sm-text: calc(0.875rem * var(--type-scale-1));
+		--md-text: calc(1rem * var(--type-scale-1));
+		--base-text: calc(1.125rem * var(--type-scale-1));
+		--h5: calc(1.75rem * var(--h5-type-scale));
+		--h4: calc(2rem * var(--h5-type-scale));
+		--h3: calc(3.5rem * var(--h3-type-scale));
+		--h2: calc(6.25rem * var(--h2-type-scale));
+		--h1: calc(9.375rem * var(--h1-type-scale));
 
 		/* END OF DESIGN SYSTEM */
 	}
 
 	.App {
-		height: 100vh;
+		min-height: 100vh;
 	}
 
 	source {
-		object-fit: contain;
+		object-fit: cover;
 		width: 100%;
-		height: 100%;
+		height: auto;
+		display: inline-block;
 	}
 
 	img {
@@ -56,19 +62,32 @@
 		height: 100%;
 	}
 
+	.home-bg source {
+		height: 100vh;
+		width: auto;
+		display: inline;
+	}
+
 	main {
-		height: calc(100vh - 104px);
+		min-height: calc(100vh - 104px);
 	}
 
 	@media only screen and (min-width: 650px) {
 		:root {
 			--type-scale: 0.9;
+			--h5-type-scale: 0.75;
+			--h3-type-scale: 0.72;
+			--h2-type-scale: 0.8;
+			--h1-type-scale: 1;
 		}
 	}
 
 	@media only screen and (min-width: 992px) {
 		:root {
 			--type-scale: 1;
+			--h5-type-scale: 1;
+			--h3-type-scale: 1;
+			--h2-type-scale: 1;
 		}
 	}
 }
