@@ -9,7 +9,7 @@ const Navlinks = () => {
 
 	return (
 		<div
-			className={`links-container fixed top-0 right-0 h-full w-[254px] py-4 text-right ${
+			className={`links-container z-2 fixed top-0 right-0 h-full w-[254px] py-4 text-right transition-transform duration-300 md:z-0 ${
 				show ? 'show' : ''
 			} sm:relative sm:w-full sm:basis-7/12 sm:py-0`}
 		>
@@ -17,9 +17,12 @@ const Navlinks = () => {
 				<CloseIcon />
 			</button>
 
-			<span aria-label="Middle aligned horizontal line" className="hr-line hidden lg:block"></span>
+			<span
+				aria-label="Middle aligned horizontal line"
+				className="hr-line hidden opacity-25 mix-blend-normal lg:block"
+			></span>
 
-			<ul className="mx-auto w-full list-none items-center justify-center gap-9 text-left sm:flex lg:gap-12">
+			<ul className="mx-auto flex w-full list-none flex-col justify-center gap-8 pt-16 text-left sm:flex-row sm:items-center sm:px-6 sm:pt-0 lg:gap-12 lg:px-0">
 				{links.map((item: RoutesType, index: number) => {
 					return (
 						<li key={item.id}>

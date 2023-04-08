@@ -19,9 +19,9 @@
 	.hr-line {
 		position: absolute;
 		top: 50%;
-		left: -48%;
+		left: -60%;
 		height: 1px;
-		width: 50%;
+		width: 65%;
 		background-color: theme('colors.white');
 		transform: translateY(50%);
 		-moz-transform: translateY(50%);
