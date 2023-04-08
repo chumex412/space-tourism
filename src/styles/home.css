@@ -1,0 +1,49 @@
+@tailwind components;
+
+@layer components {
+	.pulse-btn {
+		position: relative;
+	}
+
+	.pulse-btn::before {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		content: '';
+		border-radius: 50%;
+		transform: scale(0);
+		-moz-transform: scale(0);
+		-webkit-transform: scale(0);
+		background-color: theme('colors.white / 0.1');
+		mix-blend-mode: normal;
+		z-index: -1;
+		transition: transform 0.35s ease-in-out;
+		-moz-transition: transform 0.35s ease-in-out;
+		-webkit-transition: transform 0.35s ease-in-out;
+	}
+
+	.pulse-btn:hover::before {
+		transform: scale(1.25);
+		-moz-transform: scale(1.25);
+		-webkit-transform: scale(1.25);
+		animation: pulse 1s 0.25s linear infinite alternate;
+		-moz-animation: pulse 1s 0.25s linear infinite alternate;
+		-webkit-animation: pulse 1s 0.25s linear infinite alternate;
+	}
+
+	@keyframes pulse {
+		50% {
+			transform: scale(1.55);
+			-moz-transform: scale(1.55);
+			-webkit-transform: scale(1.55);
+		}
+	}
+
+	@-webkit-keyframes pulse {
+		50% {
+			transform: scale(1.55);
+			-moz-transform: scale(1.55);
+			-webkit-transform: scale(1.55);
+		}
+	}
+}
