@@ -1,7 +1,7 @@
-import React from 'react';
-import type { TravelLogIndicatorPropType } from '../../../application/domain/entity/travel-log';
+import { memo } from 'react';
+import type { TravelLogIndicatorPropType } from '../../../application/domain/entity/props';
 
-const Indicator = React.memo(({ active, index, onclick, pathname }: TravelLogIndicatorPropType) => {
+const Indicator = memo(({ active, index, onclick, pathname }: TravelLogIndicatorPropType) => {
 	return (
 		<button
 			className={`rounded-full transition duration-300 ${

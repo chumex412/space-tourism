@@ -1,4 +1,3 @@
-import React from 'react';
 import { BackgroundProps } from '../../../application/domain/entity/layout';
 
 const PageBackground = ({ desktop, tablet, mobile }: BackgroundProps) => {

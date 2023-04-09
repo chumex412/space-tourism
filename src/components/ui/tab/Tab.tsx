@@ -1,7 +1,7 @@
-import React from 'react';
-import { TravelTabsPropType } from '../../../application/domain/entity/travel-log';
+import { memo } from 'react';
+import { TravelTabsPropType } from '../../../application/domain/entity/props';
 
-const Tab = React.memo(({ name, active, onclick }: TravelTabsPropType) => {
+const Tab = memo(({ name, active, onclick }: TravelTabsPropType) => {
 	return (
 		<li className="list-none">
 			<button

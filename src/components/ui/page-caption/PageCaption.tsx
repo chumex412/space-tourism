@@ -1,4 +1,4 @@
-import { PageCaptionPropType } from '../../../application/domain/entity/travel-log';
+import { PageCaptionPropType } from '../../../application/domain/entity/props';
 
 const PageCaption = ({ text, count }: PageCaptionPropType) => {
 	return (

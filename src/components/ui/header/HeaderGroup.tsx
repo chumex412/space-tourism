@@ -1,9 +1,6 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
 import { PageHeader } from '../../../application/domain/entity/layout';
 
-const HeaderGroup = ({ intro, lead, text }: PageHeader) => {
-	const { pathname } = useLocation();
+const HeaderGroup = ({ intro, lead, text, pathname }: PageHeader) => {
 	return (
 		<hgroup>
 			<h2 className="flex flex-col">

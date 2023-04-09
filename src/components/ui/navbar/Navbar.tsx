@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { BrandLogo, Hamburger } from '../../../assets';
 import Navlinks from './components/Navlinks';
