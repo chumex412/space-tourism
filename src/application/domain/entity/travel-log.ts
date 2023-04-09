@@ -37,20 +37,18 @@ export type LogObjType = Destination | Crew | TechItem;
 
 export type LogPropType = 'destinations' | 'crew' | 'technology';
 
-export type PageCaptionPropType = {
-	text: string;
-	count: number;
+export type TravelLogState = {
+	destinations: DataState;
+	crew: DataState;
+	technology: DataState;
 };
 
-export type TravelLogIndicatorPropType = {
-	active: boolean;
-	index: number;
-	onclick: (index: number) => void;
-	pathname: string;
-};
+type DataState = { data: LogObjType[]; index?: number; current?: string };
 
-export type TravelTabsPropType = {
-	active: boolean;
-	onclick: (name: string) => void;
-	name: string;
-};
+export type DataCount = { index: number };
+
+export type DataName = { name: string };
+
+export interface HashedType {
+	hash: string;
+}

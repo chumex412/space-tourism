@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useTransition, useRef } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Destination } from '../domain/entity/travel-log';
@@ -9,15 +9,10 @@ import { addDestinations, updateCurrentName } from '../redux/travel-log/slice';
 
 import { getTravelLog } from '../services/travel-log';
 import { getDestinationNames, getSingleDestination } from '../usecase/travel-log';
+import { createDestination } from '../domain/model/travel-log';
 
 const useTravelDestination = function () {
-	const singleDestinationRef = useRef<Destination>({
-		name: '',
-		images: { png: '', webp: '' },
-		description: '',
-		travel: '',
-		distance: ''
-	});
+	const singleDestinationRef = useRef(createDestination());
 
 	const destinationNamesRef = useRef<DestinationNamesTypes[]>();
 

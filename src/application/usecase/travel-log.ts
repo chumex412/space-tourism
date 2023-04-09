@@ -1,6 +1,6 @@
-import { getTravelLog } from '../services/travel-log';
 import type { Destination, Crew, TechItem } from '../domain/entity/travel-log';
 import { DestinationNamesTypes } from '../domain/entity/destination';
+import { getHashedVal } from '../domain/model/travel-log';
 
 export const getDestinationNames = (list: Destination[]): DestinationNamesTypes[] => {
 	const destinations = list.map((location, index) => ({ name: location.name, id: index + 1 }));
@@ -21,7 +21,7 @@ export const changeCrew = (list: Crew[], currentIndex: number): Crew => {
 
 export const getTravelCount = (list: Crew[] | TechItem[], logData: string): string[] => {
 	const travelCount = new Array(list.length).fill(logData).map((_, index) => {
-		return window.btoa(list[index].name);
+		return getHashedVal(list[index].name).hash;
 	}) as string[];
 
 	return travelCount;
@@ -32,26 +32,3 @@ export const getSingleTech = (list: TechItem[], index: number): TechItem => {
 
 	return item;
 };
-
-/*export const increaseCrewcurrCount = (currCount: number): Crew => {
-	const crew = getCrew() as Crew[];
-	return crew[(currCount + 1) % crew.length];
-};
-
-export const decreaseCrewcurrCount = (currCount: number): Crew => {
-	const crew = getCrew() as Crew[];
-	return crew[currCount <= 0 ? crew.length - 1 : currCount - 1];
-};
-
-export const increaseTechItemcurrCount = (currCount: number): TechItem => {
-	const items = getTechnology() as TechItem[];
-
-	return items[(currCount + 1) % items.length];
-};
-
-export const decreaseTechItemcurrCount = (currCount: number): TechItem => {
-	const items = getTechnology() as TechItem[];
-
-	return items[currCount <= 0 ? items.length - 1 : currCount - 1];
-};
-*/

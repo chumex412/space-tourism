@@ -1,23 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { LogObjType } from '../../domain/entity/travel-log';
+import { LogObjType, DataName, DataCount } from '../../domain/entity/travel-log';
+import { createTravelLogState } from '../../domain/model/travel-log';
 
-type TravelLogState = {
-	destinations: DataState;
-	crew: DataState;
-	technology: DataState;
-};
-
-type DataState = { data: LogObjType[]; index?: number; current?: string };
-
-type DataCount = { index: number };
-
-type DataName = { name: string };
-
-const initialState: TravelLogState = {
-	destinations: { data: [], current: 'Moon' },
-	crew: { data: [], index: 0 },
-	technology: { data: [], index: 0 }
-};
+const initialState = createTravelLogState();
 
 const travelLogSlice = createSlice({
 	name: 'travel-log',
