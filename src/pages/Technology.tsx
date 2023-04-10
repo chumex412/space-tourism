@@ -5,7 +5,7 @@ import '../styles/technology.css';
 
 const Technology = () => {
 	return (
-		<main className="container mx-0 ml-auto px-0 pb-8 xl:pl-4">
+		<main className="container mx-0 ml-0 px-0 pb-8 xl:ml-auto xl:pl-4">
 			<section>
 				<PageBackground desktop={imgs.tech.desktop} tablet={imgs.tech.tablet} mobile={imgs.tech.mobile} />
 				<TechnContent />
