@@ -28,6 +28,11 @@
 		-webkit-transform: translateY(50%);
 	}
 
+	.nav-link:hover {
+		border-color: theme('colors.white / 0.5');
+		mix-blend-mode: normal;
+	}
+
 	@media only screen and (min-width: 480px) {
 		.links-container {
 			left: unset;

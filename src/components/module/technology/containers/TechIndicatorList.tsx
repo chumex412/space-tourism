@@ -14,7 +14,7 @@ const TechIndicatorList = () => {
 						styleIndicator={styleIndicator(
 							'flex h-10 w-10 items-center justify-center border border-white text-lg md:h-[60px] md:w-[60px] xl:h-20 xl:w-20',
 							'bg-white text-primary',
-							'bg-transparent text-white',
+							'bg-transparent mix-blend-normal text-white hover:opacity-100 opacity-50',
 							activeBtn
 						)}
 						onclick={updateIndex}

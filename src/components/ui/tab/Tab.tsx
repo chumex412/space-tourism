@@ -6,8 +6,8 @@ const Tab = memo(({ name, active, onclick }: TravelTabsPropType) => {
 		<li className="list-none">
 			<button
 				onClick={() => onclick(name)}
-				className={`pb-3 font-barlow-cond text-sm uppercase leading-[120%] text-white ${
-					active ? 'border-b-[3px] border-white' : ''
+				className={`pb-3 font-barlow-cond text-sm uppercase leading-[120%] text-white transition duration-300 ${
+					active ? 'border-b-[3px] border-white' : 'hover:border-b-[3px] hover:opacity-50 hover:mix-blend-normal'
 				}`}
 			>
 				{name}

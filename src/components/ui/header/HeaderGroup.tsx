@@ -1,8 +1,6 @@
 import { PageHeader } from '../../../application/domain/entity/layout';
 
 const HeaderGroup = ({ intro, lead, text, styles }: PageHeader) => {
-	console.log(intro);
-
 	return (
 		<hgroup>
 			<h2 className="flex flex-col">

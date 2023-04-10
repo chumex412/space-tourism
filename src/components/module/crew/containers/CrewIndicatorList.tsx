@@ -16,7 +16,7 @@ const CrewIndicatorList = () => {
 						styleIndicator={styleIndicator(
 							'h-2.5 w-2.5 bg-white xl:h-4 xl:w-4',
 							'',
-							'opacity-20 mix-blend-normal',
+							'opacity-20 mix-blend-normal hover:opacity-50',
 							activeBtn
 						)}
 						content={crewIndicatorContent()}
