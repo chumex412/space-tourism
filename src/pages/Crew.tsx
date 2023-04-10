@@ -4,8 +4,6 @@ import { imgs } from '../assets';
 import CrewContent from '../components/module/crew/components/CrewContent';
 
 const Crew = () => {
-	console.log('Rerenders');
-
 	return (
 		<main className="container flex items-center lg:block">
 			<section className="w-full">
