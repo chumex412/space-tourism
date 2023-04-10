@@ -1,30 +1,30 @@
 @tailwind components;
 
 @layer components {
-	.container {
+	main.container {
 		max-width: 100%;
 	}
 
 	@media only screen and (min-width: 992px) {
-		.container {
+		main.container {
 			max-width: 992px;
 		}
 	}
 
 	@media only screen and (min-width: 1140px) {
-		.container {
+		main.container {
 			max-width: 1140px;
 		}
 	}
 
 	@media only screen and (min-width: 1210px) {
-		.container {
+		main.container {
 			max-width: 1210px;
 		}
 	}
 
 	@media only screen and (min-width: 1440px) {
-		.container {
+		main.container {
 			max-width: 1290px;
 		}
 	}
