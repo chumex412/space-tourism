@@ -7,7 +7,7 @@ const PageLink = ({ id, name, path, index }: PageLinkProps) => {
 			className={({ isActive }) =>
 				isActive
 					? 'nav-link flex gap-2 border-r-[4px] py-2 pl-8 text-sm uppercase leading-llh text-white sm:border-r-0 sm:border-b-[3px] sm:py-8 md:pl-0'
-					: 'nav-link flex gap-2 py-2 pl-8 text-sm uppercase leading-llh text-white mix-blend-normal hover:border-white sm:py-8 hover:sm:border-r-[3px] hover:sm:border-r-0 hover:sm:border-b-[3px] md:pl-0'
+					: 'nav-link flex gap-2 py-2 pl-8 text-sm uppercase leading-llh text-white mix-blend-normal hover:border-r-[3px] hover:border-white sm:py-8 hover:sm:border-r-0 hover:sm:border-b-[3px] md:pl-0'
 			}
 			to={path}
 		>
