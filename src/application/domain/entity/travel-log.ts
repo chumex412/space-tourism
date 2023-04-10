@@ -52,3 +52,15 @@ export type DataName = { name: string };
 export interface HashedType {
 	hash: string;
 }
+
+export interface IndicatorStyleType {
+	getClassNames: (baseStyle: string, activeStyles: string, inActiveStyle: string, active: boolean) => string;
+}
+
+export interface IndicatorContent {
+	showContent: (index?: number) => string | null;
+}
+
+export interface TravelLogImageStyles {
+	classNames: string;
+}

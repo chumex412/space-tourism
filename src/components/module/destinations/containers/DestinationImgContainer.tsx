@@ -1,8 +1,8 @@
 import { useTravelDestination } from '../../../../application/controller';
-import DestinationImage from '../components/DestinationImage';
+import { TravelLogImage } from '../../../ui';
 
 const DestinationImgContainer = () => {
-	const { singleDestination, destinations } = useTravelDestination();
+	const { singleDestination, destinations, imgStyle } = useTravelDestination();
 
 	if (!destinations.length) return null;
 
@@ -13,7 +13,7 @@ const DestinationImgContainer = () => {
 	if (png) pngImg = require(`../../../../${png}`);
 	if (webp) webpImg = require(`../../../../${webp}`);
 
-	return <DestinationImage png={pngImg} webp={webpImg} />;
+	return <TravelLogImage png={pngImg} webp={webpImg} imgStyle={imgStyle} />;
 };
 
 export default DestinationImgContainer;

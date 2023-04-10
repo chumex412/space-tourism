@@ -13,6 +13,7 @@ export type TabsPropTypes = {
 export type DestinationImgProps = {
 	png?: string;
 	webp?: string;
+	imgStyle: string;
 };
 
 export type DestinationContentProps = {

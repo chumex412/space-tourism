@@ -15,3 +15,5 @@ export const createDestination = (): Destination => ({
 });
 
 export const getHashedVal = (val: string): HashedType => ({ hash: window.btoa(val) });
+
+export const getContent = (val: number) => ({ content: String(val) });

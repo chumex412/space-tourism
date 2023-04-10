@@ -1,9 +1,3 @@
-import React, { ComponentType } from 'react';
-
-export type LayoutProps = {
-	children: React.ReactElement;
-};
-
 export type LayoutState = {};
 
 export interface RoutesType {
@@ -36,4 +30,11 @@ export interface PageHeader {
 	intro?: string;
 	lead: string;
 	text: string;
+	styles: HeaderStyles;
+}
+
+export interface HeaderStyles {
+	introStyle?: string;
+	leadStyle: string;
+	textStyle: string;
 }

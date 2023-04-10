@@ -1,6 +1,7 @@
 import type { Destination, Crew, TechItem } from '../domain/entity/travel-log';
 import { DestinationNamesTypes } from '../domain/entity/destination';
-import { getHashedVal } from '../domain/model/travel-log';
+import { getContent, getHashedVal } from '../domain/model/travel-log';
+import { createImgStyles } from '../domain/model/layout';
 
 export const getDestinationNames = (list: Destination[]): DestinationNamesTypes[] => {
 	const destinations = list.map((location, index) => ({ name: location.name, id: index + 1 }));
@@ -31,4 +32,21 @@ export const getSingleTech = (list: TechItem[], index: number): TechItem => {
 	const item = list[index] as TechItem;
 
 	return item;
+};
+
+export const styleIndicator = (
+	baseStyle: string,
+	activeStyle: string,
+	inActiveStyle: string,
+	active: boolean
+): string => {
+	return `${baseStyle} ${active ? activeStyle : inActiveStyle}`;
+};
+
+export const showIndicatorContent = (index?: number): string | null => {
+	return index ? getContent(index).content : null;
+};
+
+export const showImgStyles = (names: string): string => {
+	return createImgStyles(names).classNames;
 };
